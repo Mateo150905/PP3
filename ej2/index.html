@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Dólar Argentina | Cotización Real</title>
+    <meta name="description" content="Calcula la conversión de pesos argentinos a dólares (Oficial, Blue, MEP) con cotizaciones en tiempo real.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <h1>Conversor de Dólar</h1>
+            <p class="subtitle">Cotizaciones actualizadas en tiempo real para Argentina</p>
+        </header>
+
+        <section class="input-card">
+            <div class="input-group">
+                <label for="ars-amount">Monto en Pesos (ARS)</label>
+                <div class="input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input type="number" id="ars-amount" placeholder="Ej: 50000" min="0" step="0.01">
+                </div>
+            </div>
+            <button id="calculate-btn" class="primary-btn">
+                <span>Calcular Conversión</span>
+                <div class="btn-glow"></div>
+            </button>
+            <p id="error-message" class="error-text hidden"></p>
+        </section>
+
+        <section id="results-grid" class="results-grid">
+            
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Obteniendo cotizaciones...</p>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>Datos provistos por <a href="https://dolarapi.com" target="_blank" rel="noopener">DolarApi.com</a></p>
+            <p id="last-update" class="last-update"></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Juego de Memoria</h1>
+        <div class="estadisticas">
+            <div class="stat">
+                <span class="label">Pares:</span>
+                <span class="valor"><span id="paresEncontrados">0</span>/<span id="totalPares">0</span></span>
+            </div>
+            <div class="stat">
+                <span class="label">Movimientos:</span>
+                <span class="valor" id="movimientos">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Tiempo:</span>
+                <span class="valor" id="tiempo">00:00</span>
+            </div>
+        </div>
+        
+        <div class="modal" id="modalDificultad">
+            <div class="contenido-modal">
+                <h2>Selecciona Dificultad</h2>
+                <div class="botones-dificultad">
+                    <button class="btn-diff" data-pares="6">Fácil (6 pares)</button>
+                    <button class="btn-diff" data-pares="12">Medio (12 pares)</button>
+                    <button class="btn-diff" data-pares="24">Difícil (24 pares)</button>
+                    <button class="btn-diff" data-pares="50">Maestro (50 pares)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tablero" id="tablero"></div>
+        
+        <div class="modal hidden" id="modalFinJuego">
+            <div class="contenido-modal">
+                <h2>¡JUEGO TERMINADO!</h2>
+                <p>¡Felicidades! ¡Has encontrado todos los pares!</p>
+                <button id="botonReiniciar">Jugar de Nuevo</button>
+                <button id="botonCambiarDificultad" class="secundario">Cambiar Dificultad</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

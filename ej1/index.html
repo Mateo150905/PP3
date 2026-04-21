@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de memoria</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <video id="bg-video" playsinline loop autoplay muted>
+        <source src="https://customer-t4vspcq6ysiy3jme.cloudflarestream.com/eeefba057a090bb901b42bac18aa300b/manifest/video.m3u8" type="application/x-mpegURL">
+    </video>
+    <img id="img-firma" src="icon.png" alt="firma" class="firma-img">
+    <div id="contenedor"> 
+    <h1>Memoria y suma</h1>
+
+    <div id="seccion-config">
+        <label>Cantidad de numeros:
+            <input type="number" id="cantidad-numeros" min="1" value="1">
+        </label>
+
+        <br>
+
+        <label> Tiempo (segundos):
+            <input type="number" id="tiempo" min="1" value="1">
+        </label>
+
+        <br>
+
+        <button id="iniciar-juego" onclick="jugar()">Iniciar juego</button>
+    </div> 
+
+    <div id="seccion-juego" class="oculto"> 
+        <div id="display-numeros"></div>
+    </div>
+
+    <div id="seccion-resultados" class="oculto">
+        <label>Ingrese la suma de los numeros mostrados:
+            <input type="number" id="respuesta">
+        </label>
+        <button id="verificar-respuesta" onclick="verificar()">Verificar</button>
+        <button id="reiniciar-juego" style="display:none;" onclick="reiniciar()">Volver a jugar</button>
+        <div id="resultado"></div>
+    </div>
+    </div>
+
+    <script>
+        
+        const video = document.getElementById('bg-video');
+        const videoSrc = 'https://customer-t4vspcq6ysiy3jme.cloudflarestream.com/eeefba057a090bb901b42bac18aa300b/manifest/video.m3u8';
+        
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+        }
+    </script>
+
+    
+
+    <div id="panel-flotante" class="panel-flotante">
+        <h2>Narcisse</h2>
+        <p>Le Beau Narcisse se impone como una descarga de luz en un paraíso cubierto de oro.
+             Piel desnuda, músculos tensos — no dice nada, su estela habla por él. Un perfume ámbar-almizclado esculpido para la adicción.
+              La apertura sorprende con la vivacidad de la bergamota. Luego el almizcle florece, carnal. Finalmente, la haba tonka impone su estela ardiente, resueltamente voluptuosa. Un perfume como una caricia prohibida, un soplo insistente. Le Beau Narcisse no busca la atención, la atrae — irresistiblemente.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
