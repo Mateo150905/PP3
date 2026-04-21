@@ -27,3 +27,16 @@ alter table alumnos add column fecha_nacimiento date;
 
 -- agregar nota de aprobacion a materias
 alter table materias add column nota_aprobacion real;
+
+-- trayectoria de 1 alumno
+select 
+    a.nombre || ' ' || a.apellido as alumno,
+    m.nombre as materia, 
+    n.valor as nota, 
+    n.fecha
+from notas n
+join materias m on n.id_materia = m.id
+join alumnos a on n.id_alumno = a.id
+where a.id = 1 
+order by n.fecha asc;
+
